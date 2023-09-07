@@ -118,7 +118,7 @@ namespace UserMicroservice.Test.Features
                     "mytag"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Register user with name and email", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 14
+#line 13
     this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -132,16 +132,53 @@ namespace UserMicroservice.Test.Features
                             "name",
                             "email"});
                 table2.AddRow(new string[] {
-                            "Joao Thomaz",
-                            "joao@teste.com"});
-#line 15
+                            "Joao Thomaz O",
+                            "joaoasdf@teste.com"});
+#line 14
         testRunner.Given("filling in the registration of a user with name and email as follows", ((string)(null)), table2, "Given ");
 #line hidden
-#line 18
-        testRunner.When("I send the request post", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 17
+        testRunner.When("i send the request post", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 19
+#line 18
         testRunner.Then("the user named with email must be registered", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("User registration with email only should not be allowed")]
+        [NUnit.Framework.CategoryAttribute("mytag")]
+        public void UserRegistrationWithEmailOnlyShouldNotBeAllowed()
+        {
+            string[] tagsOfScenario = new string[] {
+                    "mytag"};
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("User registration with email only should not be allowed", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 22
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+                TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
+                            "email"});
+                table3.AddRow(new string[] {
+                            "test@test.com"});
+#line 23
+    testRunner.Given("filling in the registration of a user with email as follows", ((string)(null)), table3, "Given ");
+#line hidden
+#line 26
+    testRunner.When("i send the request post", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 27
+    testRunner.Then("the system should respond with a BadRequest status code and message \"The name fie" +
+                        "ld is required\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
