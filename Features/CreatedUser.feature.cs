@@ -95,12 +95,12 @@ namespace UserMicroservice.Test.Features
                 TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
                             "name"});
                 table1.AddRow(new string[] {
-                            "Joao Thomaz"});
+                            "teste User"});
 #line 5
         testRunner.Given("filling in the registration of a user with name as follows", ((string)(null)), table1, "Given ");
 #line hidden
 #line 8
-        testRunner.When("i send the request post", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+        testRunner.When("i send the request POST", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 9
         testRunner.Then("the user named must be registered", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
@@ -132,13 +132,13 @@ namespace UserMicroservice.Test.Features
                             "name",
                             "email"});
                 table2.AddRow(new string[] {
-                            "Joao Thomaz O",
-                            "joaoasdf@teste.com"});
+                            "teste",
+                            "teste@teste.com"});
 #line 14
         testRunner.Given("filling in the registration of a user with name and email as follows", ((string)(null)), table2, "Given ");
 #line hidden
 #line 17
-        testRunner.When("i send the request post", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+        testRunner.When("i send the request POST", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 18
         testRunner.Then("the user named with email must be registered", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
@@ -174,11 +174,94 @@ this.ScenarioInitialize(scenarioInfo);
     testRunner.Given("filling in the registration of a user with email as follows", ((string)(null)), table3, "Given ");
 #line hidden
 #line 26
-    testRunner.When("i send the request post", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+    testRunner.When("i send the request POST", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 27
     testRunner.Then("the system should respond with a BadRequest status code and message \"The name fie" +
                         "ld is required\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Update user email")]
+        [NUnit.Framework.CategoryAttribute("mytag")]
+        public void UpdateUserEmail()
+        {
+            string[] tagsOfScenario = new string[] {
+                    "mytag"};
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Update user email", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 31
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+                TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
+                            "id",
+                            "name",
+                            "newEmail"});
+                table4.AddRow(new string[] {
+                            "1",
+                            "teste",
+                            "teste@newemail.com"});
+#line 32
+    testRunner.Given("an existing user with the following details and I send a PUT request to update th" +
+                        "e user\'s email", ((string)(null)), table4, "Given ");
+#line hidden
+#line 35
+    testRunner.Then("the system should respond with a status code 200", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 36
+    testRunner.And("the user\'s email should be updated to \"teste@newemail.com\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("User delete")]
+        [NUnit.Framework.CategoryAttribute("mytag")]
+        public void UserDelete()
+        {
+            string[] tagsOfScenario = new string[] {
+                    "mytag"};
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("User delete", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 41
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+                TechTalk.SpecFlow.Table table5 = new TechTalk.SpecFlow.Table(new string[] {
+                            "id",
+                            "name"});
+                table5.AddRow(new string[] {
+                            "4",
+                            "teste User"});
+#line 42
+    testRunner.Given("an existing user with the following details", ((string)(null)), table5, "Given ");
+#line hidden
+#line 45
+    testRunner.When("I send a DELETE request to delete the user with ID 4", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 46
+    testRunner.Then("the system should respond with a successful deletion status code and message \"Use" +
+                        "rDeleted\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 47
+    testRunner.And("the user with ID 4 should no longer exist", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
             this.ScenarioCleanup();
