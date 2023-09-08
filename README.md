@@ -2,9 +2,12 @@
 
 Pasta com o testes criados para a Api.
 
-Nesta tabela pode ser alterado os dados para os dados que gostaria de inserir no teste.
+Na tabela dos Cenarios de teste pode ser alterado os dados para outros caso queira.
 
-![2](https://github.com/joaothomazti/UserMicroserviceTest/assets/68667500/bdf8392f-5249-44bb-be87-d72305f66cb0)
+## Verificar tambem quando subir a Api qual a porta ela esta rodando e caso a porta não seja a mesma alterar no arquivo RegisterUserStepDefinitions.cs
+ ## BaseAddress = new Uri("http://localhost:5018") Colocar a porta que a api esta chamando.
+ 
+
 
 
 
