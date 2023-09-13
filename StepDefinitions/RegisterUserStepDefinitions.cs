@@ -1,10 +1,6 @@
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Testing;
 using Newtonsoft.Json;
 using NUnit.Framework;
-using System;
-using System.Linq;
 using System.Net;
 using System.Text;
 using TechTalk.SpecFlow;
@@ -127,7 +123,7 @@ namespace UserMicroservice.Test.StepDefinitions
             _userId = int.Parse(table.Rows[0]["id"]);
             _newEmail = table.Rows[0]["newEmail"];
 
-            var updateUser = new
+            var updateUser = new User
             {
                 Email = _newEmail
             };
@@ -167,7 +163,7 @@ namespace UserMicroservice.Test.StepDefinitions
         }
 
         [When(@"I send a DELETE request to delete the user with ID (.*)")]
-        public async Task WhenISendADELETERequestToDeleteTheUserWithID(int p0)
+        public async Task WhenISendADELETERequestToDeleteTheUserWithID(int _userId)
         {
             var apiUrl = $"/users/{_userId}";
             _response = await _client.DeleteAsync(apiUrl);
